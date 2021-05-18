@@ -1,0 +1,13 @@
+.planet-list__title {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.planet-list__column-title-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.planet-list__column-title {
+  font-size: 20px;
+}
