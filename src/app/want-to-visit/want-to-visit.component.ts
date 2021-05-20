@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Planet} from "../planets.service";
 
 @Component({
   selector: 'app-want-to-visit',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./want-to-visit.component.css']
 })
 export class WantToVisitComponent implements OnInit {
+
+  wishList: Planet[] = [];
 
   constructor() { }
 

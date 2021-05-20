@@ -6,5 +6,18 @@
     <h3 class="planet-list__column-title">Население, млн. чел.</h3>
     <h3 class="planet-list__column-title">Действие</h3>
   </div>
+
+  <div *ngIf="!loading; else loadingBlock">
+    <ul class="planet-list__list">
+      <app-planet-list-item
+        *ngFor="let planet of planets"
+        [planet]="planet"
+      ></app-planet-list-item>
+    </ul>
+  </div>
 </section>
 
+
+<ng-template #loadingBlock>
+  <p>Loading...</p>
+</ng-template>

@@ -11,3 +11,8 @@
 .planet-list__column-title {
   font-size: 20px;
 }
+
+.planet-list__list {
+  margin: 0;
+  padding: 0;
+}

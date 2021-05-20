@@ -1,1 +1,14 @@
+.planet-list__item {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 10px 0;
+}
 
+.planet-list__item-button {
+  border-radius: 100px;
+  padding: 10px;
+  width: 120px;
+  cursor: pointer;
+}
