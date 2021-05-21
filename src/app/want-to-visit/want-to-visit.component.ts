@@ -6,7 +6,7 @@ import {Component, DoCheck, Input} from '@angular/core';
   styleUrls: ['./want-to-visit.component.css']
 })
 export class WantToVisitComponent implements DoCheck {
-  @Input() wishPlanet: any;
+  @Input() wishPlanet: any;//string?
   @Input() noMoreWishPlanet: any; //string?
 
   wishList: any[] = [];

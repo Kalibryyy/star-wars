@@ -18,7 +18,7 @@ export class PlanetListComponent implements OnInit {
   ngOnInit() {
     this.loading = true;
     this.planetsService.fetchPlanets()
-      .subscribe((res: any) => {
+      .subscribe((res: any) => { //object?
         this.planets = res.results;
         this.loading = false;
       })

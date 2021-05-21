@@ -20,7 +20,7 @@
 .logo__image {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 100px;
   width: 400px;
   height: 400px;
 }
