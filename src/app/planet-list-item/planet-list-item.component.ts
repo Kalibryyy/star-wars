@@ -26,11 +26,9 @@ export class PlanetListItemComponent implements OnInit {
 
   toggleWishList(planet: string) {
     this.isPlanetInWishList = !this.isPlanetInWishList;
-    console.log(this.isPlanetInWishList);
     if (this.isPlanetInWishList) {
       this.onSavePlanet.emit(planet);
     } else {
-      console.log('Planet-list-item ', planet)
       this.onUnSavePlanet.emit(planet);
     }
   }

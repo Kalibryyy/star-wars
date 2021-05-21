@@ -1,10 +1,11 @@
-<section class="wish-list" *ngIf="wishList.length; else noPlanets">
+<section class="wish-list">
   <h2 class="wish-list__title">Хочу посетить</h2>
-  <ul *ngFor="let planet of wishList">
-    <li>
-      {{planet}}
-    </li>
-  </ul>
+  <div *ngIf="wishList.length; else noPlanets">
+    <ul class="wish-list__list">
+      <li *ngFor="let planet of wishList">
+        {{planet}}
+    </ul>
+  </div>
 </section>
 
 <ng-template #noPlanets>
