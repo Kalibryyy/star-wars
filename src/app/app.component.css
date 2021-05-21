@@ -5,6 +5,7 @@
   line-height: 1.6;
   background-color: #fff;
   padding: 10px 40px;
+  position: relative;
 }
 
 .logo__title {
@@ -14,4 +15,12 @@
 
 .logo__subtitle {
   font-size: 20px;
+}
+
+.logo__image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 400px;
 }
