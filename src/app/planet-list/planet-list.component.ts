@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Planet, PlanetsService} from "../planets.service";
 
 @Component({
@@ -7,8 +7,10 @@ import {Planet, PlanetsService} from "../planets.service";
   styleUrls: ['./planet-list.component.css']
 })
 export class PlanetListComponent implements OnInit {
+  @Output() wishPlanet: EventEmitter<string> = new EventEmitter<string>();
+  @Output() noMoreWishPlanet: EventEmitter<string> = new EventEmitter<string>();
+
   planets: Planet[] = [];
-  any = 'any1';
   loading = false;
 
   constructor(private planetsService: PlanetsService) {}
@@ -20,5 +22,13 @@ export class PlanetListComponent implements OnInit {
         this.planets = res.results;
         this.loading = false;
       })
+  }
+
+  savePlanetToWishList(planet: any) {
+    this.wishPlanet.emit(planet);
+  }
+
+  removePlanetFromWishList(planet: any) {
+    this.noMoreWishPlanet.emit(planet);
   }
 }

@@ -12,12 +12,15 @@
       <app-planet-list-item
         *ngFor="let planet of planets"
         [planet]="planet"
+        (onSavePlanet)="savePlanetToWishList($event)"
+        (onUnSavePlanet)="removePlanetFromWishList($event)"
       ></app-planet-list-item>
     </ul>
   </div>
 </section>
 
-
 <ng-template #loadingBlock>
   <p>Loading...</p>
 </ng-template>
+
+

@@ -6,4 +6,14 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  wishPlanet: string = '';
+  noMoreWishPlanet: string = '';
+
+  savePlanetToWishList(planet: string) {
+    this.wishPlanet = planet;
+  }
+
+  removePlanetFromWishList(planet: string) {
+    this.noMoreWishPlanet = planet;
+  }
 }
