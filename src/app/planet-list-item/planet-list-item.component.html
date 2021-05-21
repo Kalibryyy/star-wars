@@ -1,7 +1,7 @@
 <li class="planet-list__item">
   <span class="planet-list__item-data">{{planet.name}}</span>
   <span class="planet-list__item-data">{{planet.diameter}}</span>
-  <span class="planet-list__item-data">{{planet.population}}</span>
+  <span *ngIf="planet.population !== 'unknown'; else planetPopulationUnknown" class="planet-list__item-data">{{planet.population}}</span>
   <button class="planet-list__item-button" (click)="toggleWishList(planet.name)"
           *ngIf="!isPlanetInWishList; else buttonTextUnsave"
   >{{buttonText.save}}</button>
@@ -10,4 +10,5 @@
             *ngIf="isPlanetInWishList; else buttonTextUnsave"
   >{{buttonText.unsave}}</button>
   </ng-template>
+  <ng-template #planetPopulationUnknown>нет данных</ng-template>
 </li>
