@@ -1,0 +1,15 @@
+<main>
+
+  <app-want-to-visit
+    [wishPlanet]="wishPlanet"
+    [noMoreWishPlanet]="noMoreWishPlanet"
+  >
+  </app-want-to-visit>
+
+  <app-planet-list
+    (wishPlanet)="savePlanetToWishList($event)"
+    (noMoreWishPlanet)="removePlanetFromWishList($event)"
+  >
+  </app-planet-list>
+
+</main>
