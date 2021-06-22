@@ -8,12 +8,12 @@
   </div>
 
 <!--  *ngIf else?-->
-  <p class="planet-list__error-text">{{ errorMessage }}</p>
+  <p class="planet-list__error-text">{{ error$ | async}}</p>
 
   <div *ngIf="!loading; else loadingBlock">
     <ul class="planet-list__list">
       <app-planet-list-item
-        *ngFor="let planet of planets"
+        *ngFor="let planet of planets$ | async"
         [planet]="planet"
         (onSavePlanet)="savePlanetToWishList($event)"
         (onUnSavePlanet)="removePlanetFromWishList($event)"
