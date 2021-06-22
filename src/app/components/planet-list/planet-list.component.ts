@@ -1,6 +1,8 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {PlanetsService} from "../../services/planets.service";
 import {Planet} from "../../models/planet-model";
+import {catchError} from "rxjs/operators";
+import {throwError} from "rxjs";
 
 @Component({
   selector: 'app-planet-list',
@@ -13,18 +15,31 @@ export class PlanetListComponent implements OnInit {
 
   planets: Planet[] = [];
   loading = false;
-  errorMessage: any;
+  errorMessage = '';
+  // error$: any;
+  // planets$: any;
 
   constructor(private readonly planetsService: PlanetsService) {
   }
 
   ngOnInit() {
     this.loading = true;
+    // this.error$ = this.planetsService.error$;
+    // console.log(this.error$)
+    // this.planets$ = this.planetsService.getPlanets();
     this.planetsService.getPlanets()
+      .pipe(
+        catchError(err => {
+          if (err.status === 404) {
+            this.errorMessage = 'Запрашиваемый ресурс не найден'
+          } else {
+            this.errorMessage = err.message;
+          }
+          return throwError(err); // ?
+        })
+      )
       .subscribe((planets: Planet[]) => {
           this.planets = planets;
-          this.errorMessage = this.planetsService.error$;
-        console.log(this.planetsService.error$)
         },
       )
     this.loading = false;
