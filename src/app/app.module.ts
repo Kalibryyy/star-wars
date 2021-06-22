@@ -7,13 +7,15 @@ import { PlanetListItemComponent } from './components/planet-list-item/planet-li
 import { WantToVisitComponent } from './components/want-to-visit/want-to-visit.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlanetListComponent,
     PlanetListItemComponent,
-    WantToVisitComponent
+    WantToVisitComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

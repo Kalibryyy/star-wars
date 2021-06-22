@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-// import {Planet} from "../../models/planet-model";
 
 @Component({
   selector: 'app-planet-list-item',
@@ -17,8 +16,6 @@ export class PlanetListItemComponent implements OnInit {
     save: 'Хочу посетить',
     unsave: `В списке`
   }
-
-  constructor() { }
 
   ngOnInit(): void {
 

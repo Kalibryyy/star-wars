@@ -9,11 +9,11 @@ export class AppComponent {
   wishPlanet: string = '';
   noMoreWishPlanet: string = '';
 
-  savePlanetToWishList(planet: string) {
+  savePlanetToWishList(planet: string): void {
     this.wishPlanet = planet;
   }
 
-  removePlanetFromWishList(planet: string) {
+  removePlanetFromWishList(planet: string): void {
     this.noMoreWishPlanet = planet;
   }
 }

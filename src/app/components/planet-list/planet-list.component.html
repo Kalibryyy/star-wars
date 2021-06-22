@@ -7,6 +7,9 @@
     <h3 class="planet-list__column-title">Действие</h3>
   </div>
 
+<!--  *ngIf else?-->
+  <p class="planet-list__error-text">{{ errorMessage }}</p>
+
   <div *ngIf="!loading; else loadingBlock">
     <ul class="planet-list__list">
       <app-planet-list-item

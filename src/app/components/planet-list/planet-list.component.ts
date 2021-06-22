@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {PlanetsService} from "../../services/planets.service";
-import { Planet } from "../../models/planet-model";
+import {Planet} from "../../models/planet-model";
 
 @Component({
   selector: 'app-planet-list',
@@ -13,16 +13,21 @@ export class PlanetListComponent implements OnInit {
 
   planets: Planet[] = [];
   loading = false;
+  errorMessage: any;
 
-  constructor(private planetsService: PlanetsService) {}
+  constructor(private readonly planetsService: PlanetsService) {
+  }
 
   ngOnInit() {
     this.loading = true;
-    this.planetsService.fetchPlanets()
-      .subscribe((res: any) => { //object?
-        this.planets = res.results;
-        this.loading = false;
-      })
+    this.planetsService.getPlanets()
+      .subscribe((planets: Planet[]) => {
+          this.planets = planets;
+          this.errorMessage = this.planetsService.error$;
+        console.log(this.planetsService.error$)
+        },
+      )
+    this.loading = false;
   }
 
   savePlanetToWishList(planet: any) {
