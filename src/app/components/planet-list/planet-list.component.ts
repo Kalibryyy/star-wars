@@ -1,7 +1,9 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {PlanetsService} from "../../services/planets.service";
 import {Planet} from "../../models/planet-model";
-import {Observable} from "rxjs";
+import {Observable, throwError} from "rxjs";
+import {catchError} from "rxjs/operators";
+import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-planet-list',
@@ -12,20 +14,28 @@ export class PlanetListComponent implements OnInit {
   @Output() wishPlanet: EventEmitter<string> = new EventEmitter<string>();
   @Output() noMoreWishPlanet: EventEmitter<string> = new EventEmitter<string>();
 
-  loading = false;
-
+  // error = '';
   error$: Observable<string>;
   planets$: Observable<Planet[]>;
+  loading: boolean;
 
   constructor(
     private readonly planetsService: PlanetsService
   ) {
     this.error$ = this.planetsService.error$;
     this.planets$ = this.planetsService.planets$;
+    this.loading = this.planetsService.loading$.value;
+    console.log(this.loading)
+    // this.planets$ = this.planetsService.getPlanets().pipe(
+    //   catchError((err: HttpErrorResponse) => {
+    //     this.error = err.message;
+    //     return throwError(err);
+    //   })
+    // )
   }
 
   ngOnInit() {
-    this.loading = true;
+
     // this.error$ = this.planetsService.error$;
     // console.log(this.error$)
     // this.planets$ = this.planetsService.getPlanets();
@@ -44,7 +54,6 @@ export class PlanetListComponent implements OnInit {
       //     this.planets = planets;
       //   },
       // )
-    this.loading = false;
   }
 
   savePlanetToWishList(planet: any) {
