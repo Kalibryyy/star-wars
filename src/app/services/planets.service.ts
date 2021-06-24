@@ -25,11 +25,14 @@ export class PlanetsService {
       first(),
       tap((planetList: { results: Planet[] }) => {
         this.planets$.next(planetList.results);
-        // console.log(this.planets$);
-        // this.loading$.next(false);
-        // console.log(this.loading$);
+        console.log(this.planets$);
+        this.loading$.next(false);
+        console.log(this.loading$);
       }),
-      tap(() => this.loading$.next(false)),
+      tap(() => {
+        this.loading$.next(false);
+        console.log(this.loading$);
+      }),
       catchError((err: HttpErrorResponse) => {
         if (err.status === 404) {
           this.error$.next('Запрашиваемый ресурс не найден')
@@ -38,10 +41,7 @@ export class PlanetsService {
         }
         return of(err);
       }),
-    ).subscribe(null, null, () => {
-      this.loading$.next(false);
-      console.log(this.loading$);
-    });
+    ).subscribe();
   }
 
   // getPlanets(): Observable<Planet[]>  {
