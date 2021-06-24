@@ -17,16 +17,15 @@ export class PlanetListComponent implements OnInit {
   // error = '';
   error$: Observable<string>;
   planets$: Observable<Planet[]>;
-  loading: Observable<boolean>;
+  loading$: Observable<boolean>;
 
   constructor(
     private readonly planetsService: PlanetsService
   ) {
     this.error$ = this.planetsService.error$;
     this.planets$ = this.planetsService.planets$;
-    console.log(this.planets$)
-    this.loading = this.planetsService.loading$;
-    console.log(this.loading)
+    this.loading$ = this.planetsService.loading$;
+    console.log(this.loading$)
     // this.planets$ = this.planetsService.getPlanets().pipe(
     //   catchError((err: HttpErrorResponse) => {
     //     this.error = err.message;

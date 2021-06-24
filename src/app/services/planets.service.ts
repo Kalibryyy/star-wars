@@ -29,16 +29,13 @@ export class PlanetsService {
         this.loading$.next(false);
         console.log(this.loading$);
       }),
-      tap(() => {
-        this.loading$.next(false);
-        console.log(this.loading$);
-      }),
       catchError((err: HttpErrorResponse) => {
         if (err.status === 404) {
           this.error$.next('Запрашиваемый ресурс не найден')
         } else {
           this.error$.next(err.message);
         }
+        this.loading$.next(false);
         return of(err);
       }),
     ).subscribe();
