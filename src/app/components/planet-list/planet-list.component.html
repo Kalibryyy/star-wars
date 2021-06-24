@@ -7,36 +7,22 @@
     <h3 class="planet-list__column-title">Действие</h3>
   </div>
 
-<!--  *ngIf else?-->
-  <p class="planet-list__error-text">{{ error$ | async}}</p>
+  <p class="planet-list__error-text">{{ error$ | async }}</p>
 
-<!--  <div *ngIf="!loading$ | async">-->
-<!--    <ul class="planet-list__list">-->
-<!--      <app-planet-list-item-->
-<!--        *ngFor="let planet of planets$ | async"-->
-<!--        [planet]="planet"-->
-<!--        (onSavePlanet)="savePlanetToWishList($event)"-->
-<!--        (onUnSavePlanet)="removePlanetFromWishList($event)"-->
-<!--      ></app-planet-list-item>-->
-<!--    </ul>-->
-<!--  </div>-->
-
-<!--  <p *ngIf="loading$ | async">Loading...</p>-->
-
-  <div *ngIf="loading$ | async; else planetsBlock">
-    <p>Loading...</p>
+  <div *ngIf="!(loading$ | async); else loadingBlock">
+    <ul class="planet-list__list">
+      <app-planet-list-item
+        *ngFor="let planet of planets$ | async"
+        [planet]="planet"
+        (onSavePlanet)="savePlanetToWishList($event)"
+        (onUnSavePlanet)="removePlanetFromWishList($event)"
+      ></app-planet-list-item>
+    </ul>
   </div>
-</section>
 
-<ng-template #planetsBlock>
-  <ul class="planet-list__list">
-    <app-planet-list-item
-      *ngFor="let planet of planets$ | async"
-      [planet]="planet"
-      (onSavePlanet)="savePlanetToWishList($event)"
-      (onUnSavePlanet)="removePlanetFromWishList($event)"
-    ></app-planet-list-item>
-  </ul>
+<ng-template #loadingBlock>
+  <p>Loading...</p>
 </ng-template>
 
+</section>
 
