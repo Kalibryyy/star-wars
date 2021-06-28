@@ -21,7 +21,7 @@ export class PlanetsService {
   }
 
   fetchPlanets(): void {
-    this.http.get<{ results: Planet[] }>(`${environment.swapiServiceURL}/planets1`).pipe(
+    this.http.get<{ results: Planet[] }>(`${environment.swapiServiceURL}/planets`).pipe(
       first(),
       tap((planetList: { results: Planet[] }) => {
         this.planets$.next(planetList.results);

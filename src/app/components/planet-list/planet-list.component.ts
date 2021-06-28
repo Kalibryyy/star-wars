@@ -20,7 +20,8 @@ export class PlanetListComponent implements OnInit {
   loading$: Observable<boolean>;
 
   constructor(
-    private readonly planetsService: PlanetsService
+    private readonly planetsService: PlanetsService,
+    // private error$: Observable<string>
   ) {
     this.error$ = this.planetsService.error$;
     this.planets$ = this.planetsService.planets$;
