@@ -1,5 +1,4 @@
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from "@angular/router";
-import {Planet} from "../models/planet-model";
 import {Observable, of} from "rxjs";
 import {Injectable} from "@angular/core";
 import {PlanetsService} from "../services/planets.service";

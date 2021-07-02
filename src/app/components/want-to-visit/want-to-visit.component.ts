@@ -6,9 +6,9 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./want-to-visit.component.css']
 })
 export class WantToVisitComponent {
-  private wishPlanetValue: any;
-  private noMoreWishPlanetValue: any;
-  wishList: any[] = [];
+  private wishPlanetValue: string | undefined; //?
+  private noMoreWishPlanetValue: string | undefined; //?
+  wishList: string[] = [];
 
   @Input() set noMoreWishPlanet(noMoreWishPlanet: any) {
     this.noMoreWishPlanetValue = noMoreWishPlanet;

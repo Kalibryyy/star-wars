@@ -6,7 +6,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
   styleUrls: ['./planet-list-item.component.css']
 })
 export class PlanetListItemComponent implements OnInit {
-  @Input() planet: any; // Planet?
+  @Input() planet: any; // ?
   @Output() onSavePlanet: EventEmitter<any> = new EventEmitter<any>()
   @Output() onUnSavePlanet: EventEmitter<any> = new EventEmitter<any>()
 
@@ -18,7 +18,7 @@ export class PlanetListItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    console.log(this.planet)
   }
 
   toggleWishList(planet: string) {
