@@ -12,8 +12,6 @@ export class PlanetsService {
   error$: Subject<string> = new Subject<string>();
   planets$: BehaviorSubject<Planet[]> = new BehaviorSubject<Planet[]>([]);
 
-  // error$: Subject<HttpErrorResponse> = new Subject<HttpErrorResponse>();
-
   constructor(
     private readonly http: HttpClient
   ) {
@@ -40,29 +38,4 @@ export class PlanetsService {
       }),
     ).subscribe();
   }
-
-  // getPlanets(): Observable<Planet[]>  {
-  //   return this.http.get<{ results: Planet[] }>(`${environment.swapiServiceURL}/planets1/`).pipe(
-  //     map(({ results }: { results: Planet[] }) => results),
-  //   );
-  // }
-
-  // getPlanets(): Observable<Planet[]> {
-  //   return this.http.get<{ results: Planet[] }>('https://swapi.dev/api/planets1/')
-  //     .pipe(
-  //       map((planetList: { results: Planet[] }) => planetList.results),
-  //     )
-  // }
-
-  // getPlanets(): Observable<Planet[] | HttpErrorResponse>  {
-  //   return this.http.get<{ results: Planet[] }>('https://swapi.dev/api/planets1/')
-  //     .pipe(
-  //       map((planetList: { results: Planet[] }) => planetList.results),
-  //       catchError((err: HttpErrorResponse) => {
-  //         this.error$.next(err);
-  //         return of(err);
-  //       })
-  //     );
-  // }
-
 }
