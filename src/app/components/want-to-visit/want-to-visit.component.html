@@ -1,0 +1,15 @@
+<section class="wish-list">
+  <h2 class="wish-list__title">Хочу посетить</h2>
+  <div *ngIf="visitService.planetNames.length; else noPlanets">
+    <ul class="wish-list__list">
+      <li *ngFor="let planet of visitService.planetNames">
+        {{ planet }}
+    </ul>
+  </div>
+</section>
+
+<ng-template #noPlanets>
+  <p>Вы ещё не выбрали планеты, которые хотите посетить</p>
+</ng-template>
+
+

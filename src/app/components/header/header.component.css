@@ -1,0 +1,16 @@
+.logo__title {
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.logo__subtitle {
+  font-size: 20px;
+}
+
+.logo__image {
+  position: absolute;
+  top: 0;
+  right: 100px;
+  width: 400px;
+  height: 400px;
+}

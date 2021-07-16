@@ -1,0 +1,28 @@
+<section class="planet-list">
+  <h2 class="planet-list__title">Список планет</h2>
+  <div class="planet-list__column-title-wrapper">
+    <h3 class="planet-list__column-title">Наименование</h3>
+    <h3 class="planet-list__column-title">Диаметр, км</h3>
+    <h3 class="planet-list__column-title">Население, млн. чел.</h3>
+    <h3 class="planet-list__column-title">Действие</h3>
+  </div>
+
+  <p class="planet-list__error-text">{{ error$ | async }}</p>
+
+  <div *ngIf="!(loading$ | async); else loadingBlock">
+    <ul class="planet-list__list">
+      <app-planet-list-item
+        *ngFor="let planet of planets$ | async"
+        [planet]="planet"
+      ></app-planet-list-item>
+    </ul>
+  </div>
+
+<ng-template #loadingBlock>
+  <p>Loading...</p>
+</ng-template>
+
+</section>
+
+<!--(onSavePlanet)="savePlanetToWishList($event)"-->
+<!--(onUnSavePlanet)="removePlanetFromWishList($event)"-->

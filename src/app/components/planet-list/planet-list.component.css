@@ -1,0 +1,23 @@
+.planet-list__title {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.planet-list__column-title-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 10px;
+}
+
+.planet-list__column-title {
+  font-size: 20px;
+}
+
+.planet-list__error-text {
+  color: red;
+}
+
+.planet-list__list {
+  margin: 0;
+  padding: 0;
+}
