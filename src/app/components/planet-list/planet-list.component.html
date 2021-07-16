@@ -14,8 +14,6 @@
       <app-planet-list-item
         *ngFor="let planet of planets$ | async"
         [planet]="planet"
-        (onSavePlanet)="savePlanetToWishList($event)"
-        (onUnSavePlanet)="removePlanetFromWishList($event)"
       ></app-planet-list-item>
     </ul>
   </div>
@@ -26,3 +24,5 @@
 
 </section>
 
+<!--(onSavePlanet)="savePlanetToWishList($event)"-->
+<!--(onUnSavePlanet)="removePlanetFromWishList($event)"-->

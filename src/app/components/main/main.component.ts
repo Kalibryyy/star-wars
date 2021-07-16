@@ -6,15 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent {
-
-  wishPlanet: string = '';
-  noMoreWishPlanet: string = '';
-
-  savePlanetToWishList(planet: string): void {
-    this.wishPlanet = planet;
-  }
-
-  removePlanetFromWishList(planet: string): void {
-    this.noMoreWishPlanet = planet;
-  }
+  //
+  // wishPlanet: string = '';
+  // noMoreWishPlanet: string = '';
+  //
+  // savePlanetToWishList(planet: string): void {
+  //   this.wishPlanet = planet;
+  // }
+  //
+  // removePlanetFromWishList(planet: string): void {
+  //   this.noMoreWishPlanet = planet;
+  // }
 }

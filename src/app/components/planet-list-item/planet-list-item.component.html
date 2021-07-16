@@ -4,12 +4,12 @@
   <span *ngIf="planet.population !== 'unknown'; else planetPopulationUnknown" class="planet-list__item-data">
     {{ planet.population }}
   </span>
-  <button class="planet-list__item-button" (click)="toggleWishList(planet.name)"
-          *ngIf="!isPlanetInWishList; else buttonTextUnsave"
+  <button class="planet-list__item-button" (click)="visitService.savePlanetToWishList(planet.name)"
+          *ngIf="!(visitService.planetNames.includes(planet.name) || visitService.planetNames.includes(', ' + planet.name)); else buttonTextUnsave"
   >{{ buttonText.save }}</button>
   <ng-template #buttonTextUnsave>
-    <button class="planet-list__item-button" (click)="toggleWishList(planet.name)"
-            *ngIf="isPlanetInWishList; else buttonTextUnsave"
+    <button class="planet-list__item-button" (click)="visitService.removePlanetFromWishList(planet.name)"
+            *ngIf="visitService.planetNames.includes(planet.name) || visitService.planetNames.includes(', ' + planet.name); else buttonTextUnsave"
   >{{ buttonText.unsave }}</button>
   </ng-template>
   <ng-template #planetPopulationUnknown>нет данных</ng-template>

@@ -23,9 +23,7 @@ export class PlanetsService {
       first(),
       tap((planetList: { results: Planet[] }) => {
         this.planets$.next(planetList.results);
-        console.log(this.planets$);
         this.loading$.next(false);
-        console.log(this.loading$);
       }),
       catchError((err: HttpErrorResponse) => {
         if (err.status === 404) {

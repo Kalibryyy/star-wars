@@ -22,8 +22,8 @@ import {
 })
 
 export class PlanetListComponent {
-  @Output() wishPlanet: EventEmitter<string> = new EventEmitter<string>();
-  @Output() noMoreWishPlanet: EventEmitter<string> = new EventEmitter<string>();
+  // @Output() wishPlanet: EventEmitter<string> = new EventEmitter<string>();
+  // @Output() noMoreWishPlanet: EventEmitter<string> = new EventEmitter<string>();
 
   // error$: Observable<string>;
   // planets$: Observable<Planet[]>;
@@ -40,11 +40,11 @@ export class PlanetListComponent {
     // this.loading$ = this.planetsService.loading$;
   }
 
-  savePlanetToWishList(planet: string): void {
-    this.wishPlanet.emit(planet);
-  }
-
-  removePlanetFromWishList(planet: string): void {
-    this.noMoreWishPlanet.emit(planet);
-  }
+  // savePlanetToWishList(planet: string): void {
+  //   this.wishPlanet.emit(planet);
+  // }
+  //
+  // removePlanetFromWishList(planet: string): void {
+  //   this.noMoreWishPlanet.emit(planet);
+  // }
 }
